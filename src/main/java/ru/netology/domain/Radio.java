@@ -53,18 +53,12 @@ public class Radio {
 
     public void volumeUpForOne() {
 
-        if (volume == 10) {
-            this.volume = volume;
-        }
         if (volume < 10) {
             this.volume++;
         }
     }
 
     public void volumeDownForOne() {
-        if (volume == 0) {
-            this.volume = volume;
-        }
         if (volume > 0) {
             this.volume--;
         }
