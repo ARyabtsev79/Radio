@@ -1,4 +1,4 @@
-package ru.netology.domain;
+package ru.netology;
 
 public class Radio {
     private int currentRadioStation;
