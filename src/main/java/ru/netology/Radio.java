@@ -1,18 +1,33 @@
 package ru.netology;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+  @AllArgsConstructor
+  @NoArgsConstructor
+  @Data
 public class Radio {
     private int currentRadioStation;
+    private int minRadioStation = 0;
+    private int maxRadioStation;
     private int volume;
+    private int minVolume = 0;
+    private int maxVolume;
 
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
+    public Radio(int currentRadioStation, int maxRadioStation, int volume, int maxVolume) {
+        this.currentRadioStation = currentRadioStation;
+        this.maxRadioStation = maxRadioStation;
+        this.volume = volume;
+        this.maxVolume = maxVolume;
     }
 
     public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation > 9) {
+        if (currentRadioStation > maxRadioStation) {
             return;
         }
-        if (currentRadioStation < 0) {
+        if (currentRadioStation < minRadioStation) {
             return;
         }
         this.currentRadioStation = currentRadioStation;
@@ -20,8 +35,8 @@ public class Radio {
 
 
     public void changeOnPreviousRadioStation() {
-        if (currentRadioStation == 0) {
-            this.currentRadioStation = 9;
+        if (currentRadioStation == minRadioStation) {
+            this.currentRadioStation = maxRadioStation;
             return;
         }
         this.currentRadioStation--;
@@ -29,8 +44,8 @@ public class Radio {
 
 
     public void changeOnNextRadioStation() {
-        if (currentRadioStation == 9) {
-            this.currentRadioStation = 0;
+        if (currentRadioStation == maxRadioStation) {
+            this.currentRadioStation = minRadioStation;
             return;
         }
         this.currentRadioStation++;
@@ -42,10 +57,10 @@ public class Radio {
     }
 
     public void setVolume(int volume) {
-        if (volume < 0) {
+        if (volume < minVolume) {
             return;
         }
-        if (volume > 10) {
+        if (volume > maxVolume) {
             return;
         }
         this.volume = volume;
@@ -53,13 +68,13 @@ public class Radio {
 
     public void volumeUpForOne() {
 
-        if (volume < 10) {
+        if (volume < maxVolume) {
             this.volume++;
         }
     }
 
     public void volumeDownForOne() {
-        if (volume > 0) {
+        if (volume > minVolume) {
             this.volume--;
         }
     }
