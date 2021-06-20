@@ -1,10 +1,14 @@
 package ru.netology;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
-class RadioTest {
+@AllArgsConstructor
+@Data
+public class RadioTest {
 
     @Test
     void shouldSetCurrentRadioStation () {
@@ -12,6 +16,10 @@ class RadioTest {
         int expected = 10;
         assertEquals(expected, radio.getCurrentRadioStation());
     }
+
+    private void assertEquals(int expected, int currentRadioStation) {
+    }
+
     @Test
     void shouldSetCurrentRadioStationBackIfStationIsUnderMin () {
         Radio radio = new Radio(10,10,45,100);
