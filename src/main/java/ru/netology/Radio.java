@@ -23,13 +23,6 @@ public class Radio {
         this.maxVolume = maxVolume;
     }
 
-
-
-
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
-    }
-
     public void setCurrentRadioStation(int currentRadioStation) {
         if (currentRadioStation > maxRadioStation) {
             return;
